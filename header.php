@@ -1,55 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html <?php language_attributes(); ?>>
+	<head>
+		<meta charset="<?php bloginfo('charset'); ?>">
+		<title><?php bloginfo('name'); ?><?php wp_title('|'); ?></title>
+		<meta name="description" content="<?php bloginfo('description'); ?>">
+		<?php wp_head(); ?>
+	</head>
 
-<head>
+	<?php
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+		if( is_front_page() ):
+			$awesome_classes = array( 'awesome-class', 'my-class' );
+		else:
+			$awesome_classes = array( 'no-awesome-class' );
+		endif;
 
-    <title>Title goes here woo woo</title>
-    <link href="<?php bloginfo('template_directory'); ?>/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php bloginfo('template_directory'); ?>/css/stylish-portfolio.css" rel="stylesheet">
-    <link href="<?php bloginfo('template_directory'); ?>/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-    	<?php wp_head();?>
-</head>
-<body>
+	?>
 
-    <!-- Navigation -->
-    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
-    <nav id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
-            <li class="sidebar-brand">
-                <a href="#top" onclick=$("#menu-close").click();>Menu</a>
-            </li>
-            <li>
-                <a href="#top" onclick=$("#menu-close").click();>Home</a>
-            </li>
-            <li>
-                <a href="about.html" onclick=$("#menu-close").click();>About</a>
-            </li>
-            <li>
-                <a href="body.html" onclick=$("#menu-close").click();>Bombshell Body</a>
-            </li>
-            <li>
-                <a href="business.html" onclick=$("#menu-close").click();>Bombshell Business</a>
-            </li>
-            <li>
-                <a href="contact.html" onclick=$("#menu-close").click();>Contact</a>
-            </li>
-        </ul>
-    </nav>
-    <section id="about" class="about">
-    </section>
+	<body <?php body_class( $awesome_classes ); ?>>
 
+		<div class="container" style=" width: 100%; padding: 0;">
 
+			<div class="row">
 
-    <!-- Callout -->
-    <aside class="callout2">
-        <div class="text-vertical-center">
-        </div>
-    </aside>
+				<div class="col-xs-12">
+
+					<nav class="navbar navbar-default navbar-fixed-top">
+					  <div class="container">
+					    <!-- Brand and toggle get grouped for better mobile display -->
+					    <div class="navbar-header">
+					      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					        <span class="sr-only">Toggle navigation</span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					      </button>
+					      <a class="navbar-brand" href="#">Awesome Theme</a>
+					    </div>
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<?php
+								wp_nav_menu(array(
+									'theme_location' => 'primary',
+									'container' => false,
+									'menu_class' => 'nav navbar-nav navbar-right',
+									'walker' => new Walker_Nav_Primary()
+									)
+								);
+							?>
+						</div>
+					  </div><!-- /.container-fluid -->
+					</nav>
+
+				</div>
+
+			</div>
