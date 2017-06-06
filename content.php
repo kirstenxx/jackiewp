@@ -1,20 +1,32 @@
-<h2>Choose One</h2>
-<hr class="small">
-<div class="row">
-    <div class="col-md-6">
-        <div class="portfolio-item">
-            <a href="body.html">
-                <img class="img-portfolio img-responsive squad" src="img/jackie1copy.png">
-            </a>
-            <a href="body.html" class="btn btn-pink">Build a Bombshell Body</a>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="portfolio-item">
-            <a href="business.html">
-                <img class="img-portfolio img-responsive squad" src="img/jackie2copy.png">
-            </a>
-            <a href="business.html" class="btn btn-pink">Build a Bombshell Business</a>
-        </div>
-    </div>
-</div>
+<br>
+<br>
+<br>
+<br>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+	<header class="entry-header">
+		<?php the_title( sprintf('<h1 class="entry-title"><a href="%s">', esc_url( get_permalink() ) ),'</a></h1>' ); ?>
+		<small>Posted on: <?php the_time('F j, Y'); ?> at <?php the_time('g:i a'); ?>, in <?php the_category(); ?></small>
+	</header>
+
+	<div class="row">
+
+		<?php if( has_post_thumbnail() ): ?>
+
+			<div class="col-xs-12 col-sm-4">
+				<div class="thumbnail"><?php the_post_thumbnail('medium'); ?></div>
+			</div>
+			<div class="col-xs-12 col-sm-8">
+				<?php the_content(); ?>
+			</div>
+
+		<?php else: ?>
+
+			<div class="col-xs-12">
+				<?php the_content(); ?>
+			</div>
+
+		<?php endif; ?>
+	</div>
+
+</article>

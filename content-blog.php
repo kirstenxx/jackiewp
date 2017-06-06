@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<style= "padding: 5px;">
 <div class="col-xs-<?php echo $column; ?>">
 	<?php if( has_post_thumbnail() ): ?>
 
@@ -10,3 +11,4 @@
 
 	<small><?php the_category(' '); ?></small>
 </div>
+</style>
