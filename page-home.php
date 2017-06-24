@@ -6,6 +6,11 @@
 
 get_header(); ?>
 
+<aside class="callout2">
+		<div class="text-vertical-center">
+		</div>
+</aside>
+
 <div class="row">
 
 		<div class="col-xs-12">
